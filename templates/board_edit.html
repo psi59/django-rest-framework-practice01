@@ -1,0 +1,25 @@
+{% extends 'index.html' %}
+
+{% block boards %}
+    <div class="row">
+        <form method="POST" class="col-md-6 row"> {% csrf_token %}
+            <div class="form-group col-md-12 center-block">
+                <label for="title">Title</label>
+                <input type="text" class="form-control" name="title" id="title" placeholder="제목" value="{{ user.name }}">
+            </div>
+            <div class="form-group col-md-12 center-block">
+                <label for="content">Content</label>
+                <textarea class="form-control" rows="5" name="content" id="content" placeholder="내용" value="{{ user.email }}">
+            </div>
+            {% if user %}
+                <div class="form-group col-md-12 center-block">
+                    <button type="submit" class="btn btn-danger btn-block">수정</button>
+                </div>
+            {% else %}
+                <div class="form-group col-md-12 center-block">
+                    <button type="submit" class="btn btn-danger btn-block">작성</button>
+                </div>
+            {% endif %}
+        </form>
+    </div>
+{% endblock boards %}

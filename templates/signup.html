@@ -1,0 +1,29 @@
+{% extends 'index.html' %}
+
+{% block content %}
+    <div class="row">
+        <form method="POST" class="col-md-6 row"> {% csrf_token %}
+            <div class="form-group col-md-12 center-block">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" name="name" id="name" placeholder="이름" value="{{ user.name }}">
+            </div>
+            <div class="form-group col-md-12 center-block">
+                <label for="email">Email address</label>
+                <input type="email" class="form-control" name="email" id="email" placeholder="이메일" value="{{ user.email }}">
+            </div>
+            <div class="form-group col-md-12 center-block">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" name="password" id="password" placeholder="비밀번호" value="{{ user.password }}">
+            </div>
+            {% if user %}
+                <div class="form-group col-md-12 center-block">
+                    <button type="submit" class="btn btn-danger btn-block">수정</button>
+                </div>
+            {% else %}
+                <div class="form-group col-md-12 center-block">
+                    <button type="submit" class="btn btn-danger btn-block">회원가입</button>
+                </div>
+            {% endif %}
+        </form>
+    </div>
+{% endblock content %}

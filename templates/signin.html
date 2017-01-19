@@ -1,0 +1,19 @@
+{% extends 'index.html' %}
+
+{% block content %}
+    <div class="row">
+        <form method="POST" class="col-md-6 row"> {% csrf_token %}
+            <div class="form-group col-md-12 center-block">
+                <label for="email">Email address</label>
+                <input type="email" class="form-control" name="email" id="email" placeholder="이메일">
+            </div>
+            <div class="form-group col-md-12 center-block">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" name="password" id="password" placeholder="비밀번호">
+            </div>
+            <div class="form-group col-md-12 center-block">
+                <button type="submit" class="btn btn-danger btn-block">로그인</button>
+            </div>
+        </form>
+    </div>
+{% endblock content %}
